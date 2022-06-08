@@ -19,7 +19,7 @@
                 <input type="text" class="form-control" id="nombreTienda" name="nombreTienda" placeholder="Nombre de la tienda">
             </div>
 
-            <div class="input-group mt-3" data-provide="datepicker">
+            <div class="input-group mt-3" >
                 <input type="date" class="form-control m-0" id="fechaApertura" name="fechaApertura" placeholder="Fecha de Apertura" autocomplete="">
             </div>
 

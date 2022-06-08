@@ -39,7 +39,8 @@ public function setIdTienda($idTienda)
     {
         $RegistroExitoso = false;
         $Db = conexion::conectar();
-        $sql = $Db->prepare('INSERT INTO tienda VALUES (NULL, :nombreTienda, :FechaApertura)');
+
+        $sql = $Db->prepare('INSERT INTO tienda VALUES (NULL, :nombreTienda, :fechaApertura)');
 
         $sql->bindValue("nombreTienda", $this->getNombreTienda());
         $sql->bindValue("fechaApertura", $this->getFechaApertura());

@@ -71,11 +71,12 @@ function RegistrarProducto()
     $db = conexion::conectar();
     $registroExitoso = false;
 
-    $sql = $db->prepare("INSERT INTO producto VALUES(NULL,:nombreProducto,:descripcionProducto,:valorProducto,:imagenProducto,:tienda) ");
+    $sql = $db->prepare("INSERT INTO producto VALUES(NULL,:nombreProducto,:descripcionProducto,:valorProducto,1,:imagenProducto) ");
     $sql->bindValue("nombrePruducto", $this->getNombreProducto());
     $sql->bindValue("descripcionProducto", $this->getDescripcionProducto());
+   // $sql->bindValue("tienda", $this->getTienda());
     $sql->bindValue("imagenProducto", $this->getImagenProducto());
-    $sql->bindValue("tienda", $this->getTienda());
+    
     
 
     try {

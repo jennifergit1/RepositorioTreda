@@ -4,13 +4,14 @@ require_once("../Modelo/tiendaModelo.php");
 
 $TiendaModel = new TiendaModelo();
 
-if (isset($_POST["RegistrarTienda"])) {
+if (isset($_POST['RegistrarTienda'])) {
 
     $TiendaModel->setNombreTienda($_POST['nombreTienda']);
     $TiendaModel->setFechaApertura($_POST['fechaApertura']);
 
     $TiendaRegistrada = $TiendaModel->RegistrarTienda();
 var_dump($TiendaRegistrada);
+
     if ($TiendaRegistrada) {
         ?>
                 <script>
