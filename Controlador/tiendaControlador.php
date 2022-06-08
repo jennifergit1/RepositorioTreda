@@ -6,22 +6,32 @@ $TiendaModel = new TiendaModelo();
 
 if (isset($_POST['RegistrarTienda'])) {
 
-    $TiendaModel->setNombreTienda($_POST['nombreTienda']);
-    $TiendaModel->setFechaApertura($_POST['fechaApertura']);
-
-    $TiendaRegistrada = $TiendaModel->RegistrarTienda();
-    if ($TiendaRegistrada) {
+    if (empty($_POST['nombreTienda']) || empty($_POST['fechaApertura'])) {
 ?>
         <script>
-            alert("Tienda registrada correctamente  ");
-            window.location.href = "../Vista/listarTiendas.php";
+            alert(" Todos los campos son aligatorios ");
+            window.location.href = "../Vista/tiendaRegistrar.php";
         </script>
     <?php
     } else {
-    ?>
-        <script>
-            alert("hubo un error ");
-        </script>
-<?php
+        $nombreTienda = $TiendaModel->setNombreTienda($_POST['nombreTienda']);
+        $fechaApertura = $TiendaModel->setFechaApertura($_POST['fechaApertura']);
+
+        $TiendaRegistrada = $TiendaModel->RegistrarTienda();
     }
+}
+
+if ($TiendaRegistrada) {
+    ?>
+    <script>
+        alert("Tienda registrada correctamente  ");
+        window.location.href = "../Vista/listarTiendas.php";
+    </script>
+<?php
+} else {
+?>
+    <script>
+        alert("hubo un error ");
+    </script>
+<?php
 }
