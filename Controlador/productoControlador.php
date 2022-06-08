@@ -7,26 +7,24 @@ $ProductoModel = new ProductoModelo();
 $ProductoModel->setNombreProducto($_POST['nombreProducto']);
 $ProductoModel->setDescripcionProducto($_POST['descripcionProducto']);
 $ProductoModel->setValorProducto($_POST['valorProducto']);
-$ProductoModel->setTienda($_POST['tienda']);
+$ProductoModel->setTienda($_POST['idTienda']);
 $ProductoModel->setImagenProducto($_POST['imagenProducto']);
 
 
 $ProductoRegistrado = $ProductoModel->RegistrarProducto();
 
-
-if ($TiendaRegistrada) {
-    ?>
-            <script>
-                alert("Usuario tienda registrada correctamente  ");
-                window.location.href = "../Vista/index.php";
-            </script>
-        <?php
-        } else {
-        ?>
-            <script>
-             //  window.location.href = "../../vista/usuariosVista/iniciarSesion.php";
-             alert("huno un error ");
-            </script>
-            <?php
-        }
-    
+if ($ProductoRegistrado) {
+?>
+    <script>
+        alert("Producto registradoa correctamente  ");
+        window.location.href = "../Vista/listarProductos.php";
+    </script>
+<?php
+} else {
+?>
+    <script>
+        //  window.location.href = "../../vista/usuariosVista/iniciarSesion.php";
+        alert("hubo un error ");
+    </script>
+<?php
+}

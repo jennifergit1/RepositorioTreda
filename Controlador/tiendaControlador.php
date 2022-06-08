@@ -10,21 +10,18 @@ if (isset($_POST['RegistrarTienda'])) {
     $TiendaModel->setFechaApertura($_POST['fechaApertura']);
 
     $TiendaRegistrada = $TiendaModel->RegistrarTienda();
-var_dump($TiendaRegistrada);
-
     if ($TiendaRegistrada) {
-        ?>
-                <script>
-                    alert("Usuario tienda registrada correctamente  ");
-                    window.location.href = "../Vista/index.php";
-                </script>
-            <?php
-            } else {
-            ?>
-                <script>
-                 //  window.location.href = "../../vista/usuariosVista/iniciarSesion.php";
-                 alert("huno un error ");
-                </script>
-                <?php
-            }
-        }
+?>
+        <script>
+            alert("Tienda registrada correctamente  ");
+            window.location.href = "../Vista/listarTiendas.php";
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            alert("hubo un error ");
+        </script>
+<?php
+    }
+}

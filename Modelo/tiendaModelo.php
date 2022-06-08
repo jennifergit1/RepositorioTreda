@@ -1,16 +1,17 @@
 <?php
-class tiendaModelo{
+class tiendaModelo
+{
 
-private $idTienda;
-private $nombreTienda;
-private $fechaApertura;
+    private $idTienda;
+    private $nombreTienda;
+    private $fechaApertura;
 
 
-public function setIdTienda($idTienda)
+    public function setIdTienda($idTienda)
     {
         $this->idTienda = $idTienda;
     }
- public function getIdTienda()
+    public function getIdTienda()
     {
         return $this->idTienda;
     }
@@ -19,21 +20,21 @@ public function setIdTienda($idTienda)
     {
         $this->nombreTienda = $nombreTienda;
     }
- public function getNombreTienda()
+    public function getNombreTienda()
     {
         return $this->nombreTienda;
     }
 
-    
+
     public function setFechaApertura($fechaApertura)
     {
         $this->fechaApertura = $fechaApertura;
     }
- public function getFechaApertura()
+    public function getFechaApertura()
     {
         return $this->fechaApertura;
     }
-    
+
 
     function RegistrarTienda()
     {
@@ -44,7 +45,7 @@ public function setIdTienda($idTienda)
 
         $sql->bindValue("nombreTienda", $this->getNombreTienda());
         $sql->bindValue("fechaApertura", $this->getFechaApertura());
-       
+
         try {
             $sql->execute();
             $RegistroExitoso = true;
@@ -54,4 +55,18 @@ public function setIdTienda($idTienda)
         }
     }
 
+    function ListarTiendas()
+    {
+        $Db = conexion::conectar();
+        $sql = $Db->query("SELECT * FROM tienda");
+        $listarTiendas = [];
+        foreach ($sql->fetchAll() as  $value) {
+            $tiendas = new tiendaModelo();
+            $tiendas->setIdTienda($value['idTienda']);
+            $tiendas->setNombreTienda($value['nombreTienda']);
+            $tiendas->setFechaApertura($value['fechaApertura']);
+            $listarTiendas[] = $tiendas;
+        }
+        return $listarTiendas;
+    }
 }
