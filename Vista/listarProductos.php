@@ -26,6 +26,7 @@ $listaProductos = $productoModelo->ListarProductos();
                         <th>Nombre producto</th>
                         <th>Descripcion</th>
                         <th>Valor</th>
+                        <th>tienda</th>
                         <th>imagen</th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@ $listaProductos = $productoModelo->ListarProductos();
                             <td> <?php echo $value->getNombreProducto(); ?></td>
                             <td> <?php echo $value->getDescripcionProducto(); ?></td>
                             <td> <?php echo $value->getValorProducto(); ?></td>
+                            <td> <?php echo $value->getTienda(); ?></td>
                             <td> <?php echo $value->getImagenProducto(); ?></td>
                         </tr>   
                     <?php

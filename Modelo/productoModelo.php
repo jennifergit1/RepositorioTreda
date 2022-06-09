@@ -102,6 +102,7 @@ class productoModelo
             $productos->setDescripcionProducto($value['descripcionProducto']);
             $productos->setValorProducto($value['valorProducto']);
             $productos->setImagenProducto($value['imagenProducto']);
+            $productos->setTienda($value['nombreTienda']);
 
             $listarProductos[] = $productos;
         }
