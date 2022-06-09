@@ -1,4 +1,6 @@
 <?php
+
+
 class tiendaModelo
 {
 
@@ -69,4 +71,43 @@ class tiendaModelo
         }
         return $listarTiendas;
     }
+
+    function ListarDatosTiendas()
+    {
+
+        $Db = conexion::conectar();
+        $sql = $Db->prepare("SELECT * from tienda WHERE idTienda=:idTienda");
+        $sql->bindValue('idTienda', $this->getIdTienda());
+
+        try {
+            $sql->execute();
+            $Tienda = $sql->fetch(PDO::FETCH_ASSOC);
+
+            return $Tienda;
+        } catch (Exception $e) {
+            echo ("Ha ocurrido un error" . $e->getMessage());
+        }
+    }
+
+    function EditarTienda(){
+        $editadoExitoso = false;
+        $Db = conexion::conectar();
+
+        $sql = $Db->prepare("UPDATE tienda SET nombreTienda = :nombreTienda, fechaApertura = :fechaApertura WHERE idTienda=:idTienda");
+        
+        
+        $sql->bindValue("nombreTienda", $this->getNombreTienda());
+        $sql->bindValue("fechaApertura", $this->getFechaApertura());
+        $sql->bindValue("idTienda", $this->getIdTienda());
+       
+        try {
+            $sql->execute();
+            $editadoExitoso = true;
+            return $editadoExitoso;
+        } catch (Exception $e) {
+            echo ("Ha ocurrido un error" . $e->getMessage());
+        }
+
+    }
+
 }

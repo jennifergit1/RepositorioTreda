@@ -19,19 +19,64 @@ if (isset($_POST['RegistrarTienda'])) {
 
         $TiendaRegistrada = $TiendaModel->RegistrarTienda();
     }
+
+    if ($TiendaRegistrada) {
+        ?>
+        <script>
+            alert("Tienda registrada correctamente  ");
+            window.location.href = "../Vista/listarTiendas.php";
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            alert("hubo un error ");
+        </script>
+    <?php
+    }
+} else{
+
+    
 }
 
-if ($TiendaRegistrada) {
+
+
+
+if (isset($_POST['editarTienda'])) {
+
+if (empty($_POST['nombreTienda']) || empty($_POST['fechaApertura'])) {
+ ?>
+         <script>
+             alert(" Todos los campos son aligatorios ");
+             window.location.href = "../Vista/editarTienda.php";
+         </script>
+     <?php
+     } else {
+
+        $nombreTienda = $TiendaModel->setIdTienda($_POST['idTienda']);
+        $nombreTienda = $TiendaModel->setNombreTienda($_POST['nombreTienda']);
+        $fechaApertura = $TiendaModel->setFechaApertura($_POST['fechaApertura']);
+        
+
+        $EditadoExitoso = $TiendaModel->EditarTienda();
+        var_dump($EditadoExitoso); 
+
+     }
+        
+    if ($EditadoExitoso) {
+        ?>
+        <script>
+            alert("Tienda Editada  correctamente  ");
+            window.location.href = "../Vista/listarTiendas.php";
+        </script>
+    <?php
+    } else {
     ?>
-    <script>
-        alert("Tienda registrada correctamente  ");
-        window.location.href = "../Vista/listarTiendas.php";
-    </script>
-<?php
-} else {
-?>
-    <script>
-        alert("hubo un error ");
-    </script>
-<?php
+        <script>
+            alert("hubo un error ");
+        </script>
+    <?php
+    }
 }
+
+    

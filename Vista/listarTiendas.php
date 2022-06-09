@@ -25,6 +25,7 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
                         <th>Id </th>
                         <th>Nombre Tienda</th>
                         <th>Fecha de apertura</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,9 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
                             <td> <?php echo $value->getIdTienda(); ?></td>
                             <td> <?php echo $value->getNombreTienda(); ?></td>
                             <td> <?php echo $value->getFechaApertura(); ?></td>
+                            <td>
+                            <a href="editarTienda.php?idTienda=<?php echo $value->getIdTienda(); ?>" class="btn btn-sm btn-outline-danger btn-block">Editar</a>
+                         </td>
                         </tr>
                     <?php
                     }
