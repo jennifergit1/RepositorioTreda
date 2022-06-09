@@ -11,9 +11,9 @@ require_once("header.php");
         <div class="input-group mt-3">
             <input type="date" class="form-control m-0" id="fechaApertura" name="fechaApertura" placeholder="Fecha de Apertura">
         </div>
-        <div class="row justify-content-end " style="margin-top: 30px;">
-            <div class="col-6">
-                <button type="submit" id="RegistrarTienda" name="RegistrarTienda" class="btn btn-success btn-lg">Registrar Tienda</button>
+        <div class="row justify-content-around " style="margin-top: 30px;">
+                    <a href="listarTiendas.php" class="btn btn-info col-md-3">Volver</a>
+                <button type="submit" id="RegistrarTienda" name="RegistrarTienda" class="btn btn-success col-md-3">Registrar Tienda</button>
             </div>
             <!-- /.col -->
         </div>

@@ -13,14 +13,17 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
             <div class="card-body register-card-body">
                 <h1 class="login-box-msg text-center">Registrar Producto</h1>
                 <form action="../Controlador/productoControlador.php" method="post" id="FormRegistrarProducto">
-                    <div class="input-group">
+                    <div class="">
+                        <label for="">Nombre del producto</label><br>
                         <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="Nombre del producto">
                     </div>
-                    <div class="input-group mt-3">
+                    <div class="mt-3">
+                        <label for="">Descripción</label>
                         <textarea class="form-control" id="descripcionProducto" name="descripcionProducto" rows="3" placeholder="Descripcion del producto"></textarea>
                     </div>
-                    <div class="input-group mt-3">
-                        <input type="number" class="form-control m-0" id="valorProducto" name="valorProducto" placeholder="valor del producto">
+                    <div class="mt-3">
+                        <label for="">Valor de producto</label>
+                        <input type="number" class="form-control m-0" id="valorProducto" name="valorProducto" placeholder="Valor del producto">
                     </div>
                     <div class="">
                         <br>
@@ -31,19 +34,17 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="input-group mt-3">
+                    <div class="mt-3">
+                        <label for="">Imagen</label>
                         <input type="file" class="form-control m-0" id="imagenProducto" name="imagenProducto" placeholder="seleccionar imagen">
                     </div>
                     <br>
-                    <div class="row justify-content-end">
-                        <div class="col-3">
-                            <button type="submit" id="RegistrarProducto" name="RegistrarProducto" class="btn btn-success btn-lg">Registrar Producto</button>
-                        </div>>
+                    <div class="row justify-content-around">
+                    <a href="listarProductos.php" class="btn btn-info col-md-3">Volver</a>
+                            <button type="submit" id="RegistrarProducto" name="RegistrarProducto" class="btn btn-success col-md-3">Registrar Producto</button>
+                        
                     </div>
                 </form>
-                <div class="col-4">
-                    <a href="index.php" class="btn btn-sm btn-outline-danger btn-block">Volver al Inicio</a>
-                </div>
             </div>
         </div>
     </div>

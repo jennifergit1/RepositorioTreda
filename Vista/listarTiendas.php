@@ -13,17 +13,16 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
         <div class="col-md-8 mt-5">
             <h2 style="text-align: center;">Tiendas Registradas</h2>
             <br>
-            <div class="row  justify-content-end">
-                <div class="col-4 ">
-                    <a href="tiendaRegistrar.php" class="btn btn-success ">Registrar Nueva Tienda</a>
-                </div>
+            <div class="row  justify-content-between">
+                    <a href="index.php" class="btn btn-info col-md-3">Volver al Inicio</a>
+                    <a href="tiendaRegistrar.php" class="btn btn-success col-md-3">Registrar tienda</a>
             </div>
             <br>
-            <table class="table table-bordered bg-white">
+            <table class="table table-bordered bg-white table-striped">
                 <thead>
                     <tr>
                         <th>Id </th>
-                        <th>Nombre Tienda</th>
+                        <th>Nombre tienda</th>
                         <th>Fecha de apertura</th>
                         <th>Opciones</th>
                     </tr>
@@ -37,7 +36,7 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
                             <td> <?php echo $value->getNombreTienda(); ?></td>
                             <td> <?php echo $value->getFechaApertura(); ?></td>
                             <td>
-                            <a href="editarTienda.php?idTienda=<?php echo $value->getIdTienda(); ?>" class="btn btn-sm btn-outline-danger btn-block">Editar</a>
+                            <a href="editarTienda.php?idTienda=<?php echo $value->getIdTienda(); ?>" class="btn btn-sm btn-info">Editar</a>
                          </td>
                         </tr>
                     <?php
@@ -45,11 +44,6 @@ $listaTiendas = $tiendaModelo->ListarTiendas();
                     ?>
                 </tbody>
             </table>
-            <div class="row justify-content-around mt-3">
-                <div class="col-4">
-                    <a href="index.php" class="btn btn-sm btn-outline-danger btn-block">Volver al Inicio</a>
-                </div>
-            </div>
         </div>
     </div>
 </div>

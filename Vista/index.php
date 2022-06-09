@@ -12,21 +12,27 @@
 
 <body>
     <div class="container">
-        <h1 class="m-2 underline text-center">¡Bienvenidos!</h1>
+        <h1 class="mt-4 mb-2 underline text-center">¡Bienvenidos!</h1>
+        <hr class="my-5">
 
         <div class="row">
-            <div class="col-4 ">
-                <a href="" class="btn btn-success ">Punto 1</a>
+            <div class="col-sm-6">
+                <div class="card">  
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Gestionar tienda</h5>
+                        <p class="card-text text-center">Lista, registra y edita tiendas</p>
+                        <a href="listarTiendas.php" class="btn btn-light col-12 border">Ingresar</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-4 ">
-                <a href=" " class="btn btn-success ">Punto 2</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4 ">
-                <a href="tiendaRegistrar.php" class="btn btn-success ">PUNTO MVC</a>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Gestionar productos</h5>
+                        <p class="card-text text-center">Lista y registra productos</p>
+                        <a href="listarProductos.php" class="btn btn-light col-12 border">Ingresar</a>
+                    </div>
+                </div>
             </div>
         </div>
 
